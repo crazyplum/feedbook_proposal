@@ -19,7 +19,7 @@
       
       li p { line-height : 1.5em; }
       li { line-height: 1.5em;
-           font-size: 1.5em;
+           font-size: 30px;
       }
 
       .red { color: #fa0000}
@@ -28,7 +28,7 @@
       .blue {color: rgb(39, 86, 151);}
 
       .small-font{
-        font-size: 0.6em;
+        font-size: 0.8em;
         line-height: 0.4em;
       }
 
@@ -74,111 +74,31 @@ Feedbook企劃書架構
 
 * 整份企劃書的簡介，讓閱讀的人能先有個概括的了解
 * 最後完成的部份
-* eg. .small
+* eg. .small-font[本企劃書首先針對現有組織以及現在的學習環境、系上風氣等做一個力求全面性的分析，並提出如何整合現有的資源並獲得新的資源的方法，再進一步針對所想達成的目的提出具體的解決方案。其後，本企畫書呈現(?)本組織的組織結構與未來規劃，以利往後順利實行。]
 
 ---
 
-## Corpus
+## 計畫內容
 
-* different from LJ40K: </br>
-sentences with emoticon </br>
-
-* full of special characters, unnecessary punctuation marks </br>
+1. 簡介
+2. 現況分析
+  - 針對現有組織分析
+  - 針對現在的學習風氣分析(第一次討論出來分類的項目)
+3. 解決方案
 
 ---
 
-## Finished Progress
+## 組織架構
   
-* store raw data into database 
-
-* tokenize sentences with CKIP tokenizer
-
-* use standford parser to get dependency relationship
-
-* extract patterns 
-
-* build lexicon
+* 今天討論的結果
 
 ---
 
-## Progressing
+## 未來規劃
 
-* tfidf: for keyword identifying
+* 時程
 
-* svm
-
----
-## Problems - Tokenization
-
-* Stanford parser performs bad on Chinese sentences tokenizing. </br>
-.orange[->] Use CKIP instead
-
-* Some sentences with lots of punctuation mark cannot be tokenized. </br>
-Examples: .small-font[如果你需要時間好好冷靜的思考.......沒關係......我願意等你.......無論多久我都會等你........等你準備好了.........等你願意見我....... 我不會再讓你擔心.......我也會按時吃飯........也會好好照顧自己.......你說的我都答應你........真的.......我說的都是真的.........請你相信 我.......... 小黑豬不會和小白豬分開的......就算有........也只是短暫的]
-
-
-
-
----
-
-## Problems - Pattern Extraction
-
-* Chinese grammar is quite different from English one. </br>
-
-  .orange[->] We need to find new pattern rule instead.
-
-
----
-
-## Problems - Pattern Extraction
-
-* Patterns we want to extract: </br>
-  我(sub) 很(adv) .green[開心(v)] </br>
-  我(sub) .green[是(v)] 白痴(n) </br> 
-  我(sub) .green[吃(v)] 了 一 隻 牛(obj) </br>
-
-
----
-
-## Problems - Pattern Extraction
-
-* Strange things happens: </br>
-  我(sub) .green[肚子(v)] 痛(obj) </br>
-  事(sub) .green[做(v)]
-
-* Patterns we do not want: </br>
-  後來 很(adv) .green[快(v)] </br>
-  估(adv) .green[耐(v)]
-
-
-
----
-
-## Problems - Pattern Extraction
-
-* CKIP tokenizer may not tokenize the sentence well
-
-* Stanford parser is not suitable for Chinese data
-
-* Need to find a new way to generate good patterns for Chinese
-
----
-
-## Problems - Feature Extraction
-.left-column[ ![alt text](img/feature_extract.png) ]
-.right-column[
-* difficult to find repeated patterns in one sentence, because sentence is too short
-
-* many patterns appear in only one emotion category </br>
-.orange[->] useless for training models
-]
-
----
-
-## Problems
-
-* Need to redefine "document" </br>
-.red[✘] treat sentence as document 
+* 人力招募
 
 ---
 class: center, middle
